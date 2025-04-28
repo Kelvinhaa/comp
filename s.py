@@ -12,5 +12,11 @@ class Linkedlist:
         while cur.next != None:
             cur = cur.next
         cur.next = new_node
-
-  
+    def insert(self, data, index):
+        pass
+    
+    def prepend(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    
