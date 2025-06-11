@@ -1,11 +1,18 @@
 # University Management System
-# Current studies - > Class vars, inheritance, multiple inheritance
+# Current studies - > Class vars, inheritance, multiple inheritance, super()
+# abstract classes, polymorphism, encapsulation, magic methods
 
+from abc import ABC, abstractmethod
 class University: 
     def __init__(self, id, course) -> None:
         # instance variables
         self.id = id
         self.course = course
+
+class Cacl2_class(University):
+    @abstractmethod
+    def get_class(self):
+        pass
 
 class Staff(University):
     # Class variables
@@ -28,3 +35,4 @@ print(lecturer.id)
 
 student1 = Student('175050', 'Comp Sci')
 print(student1.course)
+
