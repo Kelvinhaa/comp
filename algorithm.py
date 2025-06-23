@@ -38,6 +38,38 @@ def partition(arr, low, high):
 # arr = [2, 1, 8, 6, 5, 7, 3, 4]
 # print(quick_sort(arr, 0, len(arr) - 1))
 
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr  # Base case: already sorted
+
+    # Step 1: Split the array into two halves
+    mid = len(arr) // 2
+    left_half = merge_sort(arr[:mid])
+    right_half = merge_sort(arr[mid:])
+
+    # Step 2: Merge the sorted halves
+    return merge(left_half, right_half)
+
+def merge(left, right):
+    sorted_list = []
+    i = j = 0
+
+    # Step 3: Compare and merge
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            sorted_list.append(left[i])
+            i += 1
+        else:
+            sorted_list.append(right[j])
+            j += 1
+
+    # Step 4: Add any remaining elements
+    sorted_list.extend(left[i:])
+    sorted_list.extend(right[j:])
+
+    return sorted_list
+
         
 
 
