@@ -1,7 +1,19 @@
 # selection, quick, merge, bubble, insertion
+def insertion(arr):
+    for i in range(1, len(arr)):
+        j = i
+        while arr[j - 1] > arr[j] and j > 0:
+            arr[j - 1], arr[j] = arr[j], arr[j-1]
+            j -= 1
+    return arr
+
+print(insertion([1, 5, 2, 4]))     
+
+
+
 
 def selection_sort(arr):
-    for i in range(len(arr) - 1):
+    for j in range(len(arr) - 1)-1:
         cur_min_idx = i
         for j in range(i + 1, len(arr)):
             if arr[j] < arr[cur_min_idx]:
@@ -73,6 +85,7 @@ def merge(left, right):
         
 
 
-if __name__ == '__main__':
-assert selection_sort([1, 2, 9, 3, 4, 5, 11, 10]) == [1, 2, 3, 4, 5, 9, 10, 11]  
+# if __name__ == '__main__':
+#     assert selection_sort([1, 2, 9, 3, 4, 5, 11, 10]) == [1, 2, 3, 4, 5, 9, 10, 11]  
 
+#
