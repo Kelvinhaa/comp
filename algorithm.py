@@ -87,5 +87,17 @@ def merge(left, right):
 
 # if __name__ == '__main__':
 #     assert selection_sort([1, 2, 9, 3, 4, 5, 11, 10]) == [1, 2, 3, 4, 5, 9, 10, 11]  
+from collections import deque
+def bfs(graph, startNode):
+    visited = set()
+    queue = deque([startNode])
 
-#
+    while queue:
+        curNode = queue.popleft()
+        if curNode not in visited:
+            visited.add(curNode)
+            queue.extend(graph[curNode])
+    return visited
+
+graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}
+print(bfs(graph, 'A'))
