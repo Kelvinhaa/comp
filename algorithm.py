@@ -91,13 +91,39 @@ from collections import deque
 def bfs(graph, startNode):
     visited = set()
     queue = deque([startNode])
+    order = []
 
     while queue:
         curNode = queue.popleft()
         if curNode not in visited:
             visited.add(curNode)
+            order.append(curNode)
             queue.extend(graph[curNode])
-    return visited
+    return order
 
 graph = {'A': ['B', 'C'], 'B': ['D'], 'C': [], 'D': []}
 print(bfs(graph, 'A'))
+
+# dfs using stack
+def dfs_stack(graph, startNode):
+    visited = set()
+    stack = [startNode]
+    while stack:
+        curNode = stack.pop()
+        if curNode not in visited:
+            print(curNode)
+            visited.add(curNode)
+            stack.extend(reversed(graph[curNode]))
+
+# dfs using recursion
+VISITED = set()
+def dfs_recur(graph, startNode):
+    if not graph:
+        return 
+    if startNode not in VISITED:
+        print(startNode)
+        VISITED.add(startNode)
+        for neighor in graph[startNode]:
+            dfs_recur(graph, neighor)
+
+# dfs_recur(graph, 'A')
